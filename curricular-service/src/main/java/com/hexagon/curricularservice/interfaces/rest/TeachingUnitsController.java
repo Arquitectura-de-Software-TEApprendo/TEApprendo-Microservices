@@ -5,6 +5,7 @@ import com.hexagon.curricularservice.application.queryservices.TeachingUnitQuery
 import com.hexagon.curricularservice.domain.projections.TeachingUnitAuditLogProjection;
 import com.hexagon.curricularservice.domain.projections.TeachingUnitProjection;
 import com.hexagon.curricularservice.interfaces.rest.resources.*;
+import com.hexagon.learningsessionservice.interfaces.rest.resources.*;
 import com.hexagon.curricularservice.interfaces.rest.transform.EditTeachingUnitCommandFromResourceAssembler;
 import com.hexagon.curricularservice.interfaces.rest.transform.RegisterTeachingUnitCommandFromResourceAssembler;
 import com.hexagon.curricularservice.interfaces.rest.transform.TeachingUnitResourceFromCommandAssembler;

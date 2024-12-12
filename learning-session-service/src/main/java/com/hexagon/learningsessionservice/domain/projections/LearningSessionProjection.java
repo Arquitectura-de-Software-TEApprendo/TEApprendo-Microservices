@@ -1,4 +1,4 @@
-package com.hexagon.curricularservice.domain.projections;
+package com.hexagon.learningsessionservice.domain.projections;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
@@ -12,19 +12,22 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-public class TeachingUnitProjection {
+public class LearningSessionProjection {
     @Id
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     @Column(length = 50)
-    private String name;
-
-    @Column(length = 50)
     private String duration;
 
-    @Column(length = 50)
-    private String purpose;
+    @Column(length = 250)
+    private String beginning;
+
+    @Column(length = 250)
+    private String development;
+
+    @Column(length = 250)
+    private String conclusion;
 
     @Column(length = 8)
     private String status;
@@ -35,14 +38,15 @@ public class TeachingUnitProjection {
     @Column(nullable = true)
     private LocalDateTime updatedAt;
 
-    public TeachingUnitProjection() {
+    public LearningSessionProjection() {
     }
 
-    public TeachingUnitProjection(Long id, String name, String duration, String purpose, String status, LocalDateTime createdAt) {
+    public LearningSessionProjection(Long id, String duration, String beginning, String development, String conclusion, String status, LocalDateTime createdAt) {
         this.id = id;
-        this.name = name;
         this.duration = duration;
-        this.purpose = purpose;
+        this.beginning = beginning;
+        this.development = development;
+        this.conclusion = conclusion;
         this.status = status;
         this.createdAt = createdAt;
     }
