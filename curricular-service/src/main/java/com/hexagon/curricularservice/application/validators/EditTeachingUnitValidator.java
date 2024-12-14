@@ -16,14 +16,14 @@ public class EditTeachingUnitValidator {
         Long id = command.getId();
         if (id <= 0) notification.addError("Teaching Unit id must be greater than 0");
 
-        String firstName = command.getName().trim();
-        if (firstName.isEmpty()) notification.addError("Teaching Unit name is required");
+        String name = command.getName().trim();
+        if (name.isEmpty()) notification.addError("Teaching Unit name is required");
 
-        String lastName = command.getDuration().trim();
-        if (lastName.isEmpty()) notification.addError("Teaching Unit duration is required");
+        String duration = command.getDuration().trim();
+        if (duration.isEmpty()) notification.addError("Teaching Unit duration is required");
 
-        String dni = command.getPurpose().trim();
-        if (dni.isEmpty()) notification.addError("Teaching Unit purpose is required");
+        String purpose = command.getPurpose().trim();
+        if (purpose.isEmpty()) notification.addError("Teaching Unit purpose is required");
 
         return notification;
     }

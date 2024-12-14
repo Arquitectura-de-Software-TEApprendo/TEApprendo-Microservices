@@ -11,6 +11,14 @@ spring:
           uri: lb://CURRICULAR-SERVICE
           predicates:
             - Path=/curricular/**
+        - id: LEARNING-SESSION-SERVICE
+          uri: lb://LEARNING-SESSION-SERVICE
+          predicates:
+            - Path=/learning-sessions/**
+        - id: GAME-SERVICE
+          uri: lb://GAME-SERVICE
+          predicates:
+            - Path=/games/**
 
 eureka:
   client:

@@ -6,10 +6,11 @@ import com.hexagon.learningsessionservice.interfaces.rest.resources.EditLearning
 public class EditLearningSessionCommandFromResourceAssembler {
     public static EditLearningSession toCommandFromResource(EditLearningSessionResource resource) {
         return new EditLearningSession(
-            resource.id(),
-            resource.name(),
-            resource.duration(),
-            resource.purpose(),
-            resource.updatedAt());
+                resource.id(),
+                resource.duration(),
+                resource.beginning(),
+                resource.development(),
+                resource.conclusion(),
+                resource.updatedAt());
     }
 }

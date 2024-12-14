@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hexagon</groupId>
-	<artifactId>learnignsessionservice</artifactId>
+	<artifactId>learningsessionservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>learning-session-service</name>
 	<description>Learning Session Microservice</description>

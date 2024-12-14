@@ -11,6 +11,14 @@ public class FlywayConfiguration {
 
     @Autowired
     public FlywayConfiguration(DataSource dataSource) {
-        Flyway.configure().baselineOnMigrate(true).dataSource(dataSource).load().migrate();
+        Flyway.configure()
+                .baselineOnMigrate(true)
+                .dataSource(dataSource)
+                .ignoreMigrationPatterns(
+                        "*:missing", //ignore applied database migrations missing in classpath with version number < latest migration
+                        "*:future" //ignore applied database migrations missing in classpath with version number > latest migration
+                )
+                .outOfOrder(true)
+                .load().migrate();
     }
 }

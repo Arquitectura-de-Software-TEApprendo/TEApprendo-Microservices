@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "654454de-f60b-4dfa-bafd-8addc13f0265",
+		"name": "TEApprendo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23264409"
+	},
+	"item": [
+		{
+			"name": "curricular-service",
+			"item": [
+				{
+					"name": "Unidad Didáctica",
+					"item": [
+						{
+							"name": "Registrar",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Stores the id from the response in an environment or global variable\r",
+											"var responseBody = pm.response.json();\r",
+											"var id = responseBody.success.id;\r",
+											"pm.globals.set(\"id\", id);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Unidad Didáctica C\",\r\n  \"duration\": \"2 semanas\",\r\n  \"purpose\": \"Aprender C\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/curricular/teaching-units",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"curricular",
+										"teaching-units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Unidad Didáctica A\",\r\n  \"duration\": \"3 semanas\",\r\n  \"purpose\": \"Aprender A\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/curricular/teaching-units/{{id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"curricular",
+										"teaching-units",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Logs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/curricular/teaching-units/{{id}}/audit-logs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"curricular",
+										"teaching-units",
+										"{{id}}",
+										"audit-logs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Todo",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.globals.set(\"page\", 1);\r",
+											"pm.globals.set(\"limit\", 10);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/curricular/teaching-units/page/{{page}}/limit/{{limit}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"curricular",
+										"teaching-units",
+										"page",
+										"{{page}}",
+										"limit",
+										"{{limit}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "learning-session-service",
+			"item": [
+				{
+					"name": "Registrar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Stores the id from the response in an environment or global variable\r",
+									"var responseBody = pm.response.json();\r",
+									"var id = responseBody.success.id;\r",
+									"pm.globals.set(\"id\", id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Unidad Didáctica A\",\r\n  \"duration\": \"3 semanas\",\r\n  \"purpose\": \"Aprender A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/learning-sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"learning-sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"duration\": \"2 semanas\",\r\n  \"beginning\": \"Beginning AX\",\r\n  \"development\": \"Development AX\",\r\n  \"conclusion\": \"Conclusion AX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/learning-sessions/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"learning-sessions",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Logs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/learning-sessions/{{id}}/audit-logs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"learning-sessions",
+								"{{id}}",
+								"audit-logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/learning-sessions/page/{{page}}/limit/{{limit}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"learning-sessions",
+								"page",
+								"{{page}}",
+								"limit",
+								"{{limit}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "game-service",
+			"item": [
+				{
+					"name": "Registrar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Stores the id from the response in an environment or global variable\r",
+									"var responseBody = pm.response.json();\r",
+									"var id = responseBody.success.id;\r",
+									"pm.globals.set(\"id\", id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Game A\",\r\n  \"type\": \"Type A\",\r\n  \"difficulty\": \"Easy\",\r\n  \"topic\": \"Topic A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/games",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Game AX\",\r\n  \"type\": \"Type AX\",\r\n  \"difficulty\": \"Medium\",\r\n  \"topic\": \"Topic AX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/games/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"games",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Logs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/games/{{id}}/audit-logs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"games",
+								"{{id}}",
+								"audit-logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/games/page/{{page}}/limit/{{limit}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"games",
+								"page",
+								"{{page}}",
+								"limit",
+								"{{limit}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

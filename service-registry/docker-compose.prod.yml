@@ -1,0 +1,10 @@
+services:
+  service-registry:
+    image: service-registry:1.0.0-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
