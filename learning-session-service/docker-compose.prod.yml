@@ -1,10 +1,10 @@
 services:
   learning-session-service:
-    image: learning-session-service:1.0.0-prod
+    image: learningsessionservice:1.0.0-prod
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8082:8082"
     environment:
       SPRING_PROFILES_ACTIVE: prod

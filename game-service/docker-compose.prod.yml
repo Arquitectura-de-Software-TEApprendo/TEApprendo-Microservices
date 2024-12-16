@@ -1,10 +1,10 @@
 services:
   game-service:
-    image: game-service:1.0.0-prod
+    image: gameservice:1.0.0-prod
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8083:8083"
     environment:
       SPRING_PROFILES_ACTIVE: prod

@@ -1,5 +1,5 @@
 FROM openjdk:22-jdk
 VOLUME /tmp
-EXPOSE 8080
-COPY target/learning-session-service-1.0.0.jar app.jar
+EXPOSE 8082
+COPY target/learningsessionservice-1.0.0.jar app.jar
 ENTRYPOINT java -Djava.security.egd=file:/dev/./urandom -jar /app.jar

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.hexagon</groupId>
 	<artifactId>gameservice</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>game-service</name>
 	<description>Game Microservice</description>
 	<properties>
